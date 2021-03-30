@@ -68,6 +68,9 @@ public class UserService {
     }
 
     private BigDecimal makeCalculations(Integer followers, Integer publicRepos) {
+        if (followers.equals(0)) {
+            return BigDecimal.valueOf(0);
+        }
         BigDecimal result = BigDecimal.valueOf(6).setScale(10, RoundingMode.FLOOR);
         return result.divide(BigDecimal.valueOf(followers), RoundingMode.FLOOR).multiply(BigDecimal.valueOf(2 + publicRepos));
     }
