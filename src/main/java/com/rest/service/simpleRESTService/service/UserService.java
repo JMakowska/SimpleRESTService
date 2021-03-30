@@ -7,7 +7,6 @@ import com.rest.service.simpleRESTService.dto.UserDTO;
 import com.rest.service.simpleRESTService.dto.UserResponseDTO;
 import com.rest.service.simpleRESTService.entity.UserCounter;
 import com.rest.service.simpleRESTService.repository.UserCounterRepository;
-import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -59,7 +58,7 @@ public class UserService {
     public ResponseEntity getUserCounter(String login) {
         UserCounter userCounter = userCounterRepository.findById(login)
                 .orElse(null);
-        if(userCounter == null) {
+        if (userCounter == null) {
             ErrorResponseDTO errorResponseDTO = ErrorResponseDTO.builder()
                     .message("User doesn't exist in database")
                     .build();

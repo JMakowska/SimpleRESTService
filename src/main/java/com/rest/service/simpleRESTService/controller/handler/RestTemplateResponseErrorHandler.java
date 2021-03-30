@@ -1,6 +1,5 @@
 package com.rest.service.simpleRESTService.controller.handler;
 
-import lombok.SneakyThrows;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResponseErrorHandler;
@@ -19,8 +18,7 @@ public class RestTemplateResponseErrorHandler implements ResponseErrorHandler {
                         || clientHttpResponse.getStatusCode().series() == SERVER_ERROR);
     }
 
-    @SneakyThrows
     @Override
-    public void handleError(ClientHttpResponse clientHttpResponse) throws IOException {
+    public void handleError(ClientHttpResponse clientHttpResponse) {
     }
 }
